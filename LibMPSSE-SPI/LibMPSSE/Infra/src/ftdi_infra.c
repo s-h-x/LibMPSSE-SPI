@@ -261,7 +261,10 @@ FTDI_API void Init_libMPSSE(void)
 	FN_ENTER;
 
 /* Load D2XX dynamic library */
-#ifdef __linux
+#ifdef __cygwin__
+	hdll_d2xx = dlopen("ftd2xx.dll", RTLD_LAZY);
+	CHECK_NULL(hdll_d2xx);
+#elif __linux
 	hdll_d2xx = dlopen("libftd2xx.so",RTLD_LAZY);
 	CHECK_NULL(hdll_d2xx);
 #elif __MACH__
