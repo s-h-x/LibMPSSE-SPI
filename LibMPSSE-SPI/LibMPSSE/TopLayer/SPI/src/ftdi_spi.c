@@ -1185,7 +1185,8 @@ FT_STATUS SPI_ToggleCS(FT_HANDLE handle, bool state)
 	FN_ENTER;
 	if(!state)
 	{
-		INFRA_SLEEP(2);
+		// Why the heck would we sleep here ?
+		//INFRA_SLEEP(2);
 	}
 #ifdef DEVELOPMENT_FIXED_CS
 //#if 1
